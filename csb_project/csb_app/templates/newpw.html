@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Change password</title>
+    </head>
+
+    <body>
+
+        <form id='newpw' action='../newpw/' method="POST">
+            {% csrf_token %}
+            <span>New password:</span><br/>
+            <input type="password" name="password"/><br/>
+            <input type="submit" value="Change"/>
+        </form>
+    </body>
+
+</html>

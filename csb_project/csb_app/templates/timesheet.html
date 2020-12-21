@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Timesheet Application</title>
+    </head>
+
+
+    <body>
+		<h1>Timesheet</h1>
+        <a href="/newentry">Add new timesheet entries</a></br>
+        <a href="/newpw">Change password</a></br>
+
+        <p>Search by comment:</p>
+        <form method="GET">
+            <input type="text" name="search" />
+            <input type="submit" value="Search" />
+        </form>
+        
+        <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>User</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Time (hrs)</th>
+                <th>Comment</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in entries %}
+            <tr>
+                <td>{{entry.id}}</td>
+                <td>{{entry.user}}</td>
+                <td>{{entry.start}}</td>
+                <td>{{entry.end}}</td>
+                <td>{{entry.time}}</td>
+                <td>{{entry.comment}}</td>
+                <td>{{entry.completed}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        
+        <form action='logout/' method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Logout"/>
+        </form>
+
+    </body>
+
+</html>
